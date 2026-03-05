@@ -9,7 +9,7 @@ body {
   color: rgb(32,40,48);
   background-color: rgb(251,253,255);
   font-size: 4.4mm;
-  font-family: Cuprum, Segoe UI, Liberation Sans, sans-serif;
+  font-family: Cuprum, "Segoe UI Condensed", "Roboto Condensed", "Helvetica Neue Condensed", "Arial Narrow", "Liberation Sans Narrow", sans-serif-condensed, sans-serif;
   line-height: 1.8em;
 }
 
