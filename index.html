@@ -12,6 +12,7 @@
       box-sizing: border-box;
       overflow-y: scroll;
       cursor: default;
+      scroll-behavior: smooth;
     }
     main, header, nav, section, article, footer { display: block; }
     img, table, iframe { max-width: 100%; }
@@ -21,13 +22,14 @@
       position: fixed;
       top: 0; bottom: 0;
       left: 0; right: 0;
-      z-index: 100;
+      z-index: 9999;
     }
     .hidden { display: none; }
 
     #preloader {
-      background-color: gray; color: white;
-      background-image: radial-gradient(gray, white);
+      background-color: transparent; color: white;
+      background-image: radial-gradient(gray, transparent);
+      backdrop-filter: blur(5vh);
     }
     #preloader.state-done {
       animation: fade 1.5s ease-out forwards, zoom 1.5s ease-in forwards;
@@ -89,71 +91,178 @@
   <div id="preloader" class="overlay"><div></div></div>
 
   <main class="bg-light">
-    <header class="clear">
-      <h1 id="logo" title="Alexei Gaiduk" lang="ru">Алексей Гайдук</h1>
+    <header class="flex wrap space-between align-center">
+      <h1 id="logo"><a href="#" title="Alexei Gaiduk">Алексей Гайдук</a></h1>
       <nav>
         <ul>
+          <li><a href="#mywork">Портфолио</a></li>
           <li><a href="#whatIdo">Делаю</a></li>
           <li><a href="#projects">Проекты</a></li>
-          <li><a href="#mywork">Портфолио</a></li>
           <li><a href="#contacts">Контакты</a></li>
         </ul>
       </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button">🌙</button>
     </header>
 
     <section>
-      <h2>Разработка и развитие веб-продуктов</h2>
+      <h2>Web-программист с многолетним промышленным опытом</h2>
       <p>
-        Беру проекты на этапе идеи, роста или технических проблем
-        и довожу их до стабильного и масштабируемого решения.
+        Меня зовут Алексей Гайдук. Я fullstack-разработчик и уже более 10 лет занимаюсь
+        созданием сайтов, веб-приложений и сервисов.
+      </p>
+      <p>
+        Я помогаю запускать и развивать проекты, которые работают быстро,
+        не ломаются под нагрузкой и остаются удобными для пользователей по мере роста.
+      </p>
+      <p>
+        Основной стек на фронтенде: JavaScript, React и TypeScript;
+        на бэкенде: Node.js, PHP, Python и SQL, Docker.<br>
+        Часто подключаюсь к проектам, где нужна доработка сайта,
+        исправление ошибок или оптимизация производительности.
+      </p>
+      <p>
+        Так-же работал и с более редкими и специализированными технологиями:
+        three.js и Babylon.js для 3D в браузере, svg.js для редакторов,
+        Electron для desktop-приложений, PWA с offline-режимами,
+        Telegram-боты и API, микросервисы для обработки файлов,
+        автоматизацией рендера в Blender через Python,
+        обработкой изображений и ML inference,
+        а также интеграциями с AR и просмотром 3D-моделей в браузере.
       </p>
     </section>
-
+    
     <section>
-      <h2><a name="whatIdo"></a>Делаю</h2>
-      <div class="ngrid ml">
-        <figure class="item part a1of3">
+      <a name="mywork"></a>
+      <h2>Примеры моих работ</h2>
+      <div class="flex wrap triple gap">
+        <figure class="item">
           <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>Разработка сайтов, лендингов и веб приложений</figcaption>
+          <figcaption>Pizza Time v2 <small>design update, ux improvements, pizza constructor, restoraunt mode, react, php, 2025</small></figcaption>
         </figure>
-        <figure class="item part a1of3">
+        <figure class="item">
           <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>Доработка и улучшение существующих продуктов</figcaption>
+          <figcaption>Tarantella <small>online e-shop, react, php, 2023</small></figcaption>
         </figure>
-        <figure class="item part a1of3">
+        <figure class="item">
           <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>Разработка и доработка backend и API</figcaption>
+          <figcaption>Pizza Time <small>online e-shop, orders dashboard, backend, frontend, design, react, php, 2021-2022</small></figcaption>
         </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>Создание личных кабинетов, админ панелей, дашбордов и CRM</figcaption>
+        <figure class="item">
+          <img src="portfolio/other/nda.webp" alt="NDA" loading="lazy" />
+          <figcaption>Interior Panorama Renderer <small>python, blender, docker, within AngelsIT, 2020</small></figcaption>
         </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>Улучшение юзабилити и оптимизация веб приложений</figcaption>
+        <figure class="item">
+          <img src="portfolio/other/nda.webp" alt="NDA" loading="lazy" />
+          <figcaption>Online AR 3D Model Viewer <small>model upload and publish service, model converter, backend, frontrnd, react, symphony, node, within AngelsIT, 2020</small></figcaption>
         </figure>
-        <figure class="item part a1of3">
+        <figure class="item">
+          <img src="portfolio/other/nda.webp" alt="NDA" loading="lazy" />
+          <figcaption>Planogram Editor <small>interactive 2D editor with 3D view, frontend, backend, react, three.js, within AngelsIT, 2020</small></figcaption>
+        </figure>
+        <figure class="item">
           <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>Поддержка и консультация</figcaption>
+          <figcaption>DGK Virtual Stand <small>interactive 3D web page, frontend, babylon.js, react, within AngelsIT, 2019-2020</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/other/nda.webp" alt="NDA" loading="lazy" />
+          <figcaption>EasyBoard Online <small>interactive 3D web app, fullstack, three.js, react, php, within AngelsIT, 2019</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
+          <figcaption>Parking UI <small>web app, frontend, react, within AngelsIT, 2019</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
+          <figcaption>Card Apply UI <small>internal service, editors, frontend, ux, typescript, angular, within FTNet, 2019</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
+          <figcaption>Medical News <small>dynamic website, frontend, angular, aborted, within FTNet, 2019</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
+          <figcaption>University Pages <small>small cms, frontend, backend, js, php, sqlite, within FTNet, 2019</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/2018/aelitaart/aelitaart-v1.webp" alt="" loading="lazy" />
+          <figcaption>АэлитаАрт <small>e-shop, website, frontend, design, WP cms, adaptive, 2018</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/2018/collatz/playground-v1.webp" alt="" loading="lazy" />
+          <figcaption>Collatz Playground <small>simple web app, frontend, design, UX, adaptive, within DevHeap, 2018</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/2017/closer-io/closer-io-v1.webp" alt="" loading="lazy" />
+          <figcaption>Closer.io <small>demo page, adaptive, design, within DevHeap, 2017</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/2017/ifenix/ifenix-v1.webp" alt="" loading="lazy" />
+          <figcaption>Сервис-центр i-FENIX <small>landing page, adaptive, outsource for 8crm.ru, 2017</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/2016/hms/hms-v1.webp" alt="" loading="lazy" />
+          <figcaption>Hotel Management System <small>study prototype, backend, frontend, design, responsive, within XRAZY at IU, 2016</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/2015/pillow-pro/iwellness-v1.webp" alt="" loading="lazy" />
+          <figcaption>Массажёры iWellness <small>landing page, frontend, within Stebnev-Studio, 2015</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/2015/classy-snake/classy-snake-v1.webp" alt="" loading="lazy" />
+          <figcaption>CLASSYSNAKE <small>frontend, adaptive, within Stebnev-Studio, 2015</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/2015/stringer/stringer-v0.webp" alt="" loading="lazy" />
+          <figcaption>Stringer Market <small>frontend, for Stebnev-Studio, 2015</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/2015/netcom/netcom-v1.webp" alt="" loading="lazy" />
+          <figcaption>IT услуги NetCom <small>landing page, design, UX, responsive, 2015</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/2015/terratravel/terratravel-v2.webp" alt="" loading="lazy" />
+          <figcaption>Тур-агентство ТЕРРАТРЭВЕЛ <small>website version 3, admin panel, backend, frontend, design, responsive, 2015</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/2014/chiromancer/v0.webp" alt="" loading="lazy" />
+          <figcaption>Chiromancer <small>template for DLE cms, frontend, design, 2014</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/2014/games4me/g4m-v1.webp" alt="" loading="lazy" />
+          <figcaption>Games4Me <small>logo, design, feat. X-NicON, 2014</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/2013/fresh-flowers/fresh-flowers-v1.webp" alt="" loading="lazy" />
+          <figcaption>Доставка цветов Fresh Flowers <small>website, frontend, backend, design, 2014</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/2013/terratravel/terratravel-v1.webp" alt="" loading="lazy" />
+          <figcaption>Тур-агентство ТЕРРАТРЭВЕЛ <small>static website version 2, frontend, design, 2013</small></figcaption>
+        </figure>
+        <figure class="item">
+          <img src="portfolio/2012/mse36/mse36-v1.webp" alt="" loading="lazy" />
+          <figcaption>МСЭ Воронежской области <small>website, backend, frontend, design, UX, feat. X-NicON, 2012</small></figcaption>
         </figure>
       </div>
     </section>
 
-    <section id="services">
+    <section>
+      <a name="whatIdo"></a>
       <h2>Разработка и доработка сайтов и веб-приложений</h2>
+      <ul>
+        <li>Разработка сайтов, лендингов и веб-приложений (под ключ)</li>
+        <li>Доработка и улучшение существующих проектов</li>
+        <li>SPA и PWA-приложения на React, Preact или Angular</li>
+        <li>Разработка и доработка backend, API и микросервисов</li>
+        <li>Создание личных кабинетов, админ панелей, дашбордов и CRM</li>
+        <li>Улучшение юзабилити и оптимизация веб приложений</li>
+        <li>Поддержка и консультация</li>
+      </ul>
       <p>
         Я занимаюсь разработкой сайтов и веб-приложений, когда важен результат,
         а не формальное выполнение задачи. Это может быть новый проект
         или существующий сайт, который работает медленно или неудобен для пользователей.
       </p>
-      <ul>
-        <li>разработка сайтов под ключ</li>
-        <li>разработка веб-приложений</li>
-        <li>SPA и PWA-приложения на React</li>
-        <li>backend и API разработка</li>
-        <li>личные кабинеты, CRM и админ-панели</li>
-        <li>оптимизация и поддержка сайтов</li>
-      </ul>
       <p>
         Если проект упёрся в технические ограничения, код сложно поддерживать
         или сайт медленно работает, я разбираюсь в текущем состоянии
@@ -167,189 +276,50 @@
     </section>
 
     <section>
-      <h2><a name="projects"></a>Projects</h2>
-      <div class="ngrid ml">
-        <figure class="item part a1of3">
+      <a name="projects"></a>
+      <h2>Мои проекты</h2>
+      <div class="flex wrap triple gap">
+        <figure class="item">
           <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>Last PHP Engine<br><small>fast and small framework with admin panel, frontend, backend, 2019-Now</small></figcaption>
+          <figcaption>Last PHP Engine <small>fast and small framework with admin panel, frontend, backend, 2019-Now</small></figcaption>
         </figure>
-        <figure class="item part a1of3">
+        <figure class="item">
           <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>Tasks<br><small>task management tool, fullstack, frozen, 2015-2016</small></figcaption>
+          <figcaption>Tasks <small>task management tool, fullstack, frozen, 2015-2016</small>
+          </figcaption>
         </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/books/bls-01-book.webp" alt="" loading="lazy" />
-          <figcaption>Books Library System<br><small>catalog system for e-books, fullstack, design, 2013</small></figcaption>
+        <figure class="item">
+          <img src="portfolio/2013/books/bls-v1-book.webp" alt="" loading="lazy" />
+          <figcaption>Books Library System <small>catalog system for e-books, fullstack, design, 2013</small></figcaption>
         </figure>
-        <figure class="item part a1of3">
+        <figure class="item">
           <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>MineState<br><small>minecraft servers monitoring, fullstack, aborted, 2012</small></figcaption>
+          <figcaption>MineState <small>minecraft servers monitoring, fullstack, aborted, 2012</small></figcaption>
         </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/half-valve/half-valve.webp" alt="" loading="lazy" />
-          <figcaption>Half-VALVe<br><small><a href="https://half-valve.3dn.ru">half-valve.3dn.ru</a>, frontend, UX, design, content, 2008-2013</small></figcaption>
+        <figure class="item">
+          <img src="portfolio/2008/half-valve/half-valve-v1.webp" alt="" loading="lazy" />
+          <figcaption>Half-VALVe <small><a href="https://half-valve.3dn.ru">half-valve.3dn.ru</a>, frontend, UX, design, content, 2008-2013</small></figcaption>
         </figure>
-        <figure class="item part a1of3">
+        <figure class="item">
           <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>DevExp<br><small><a href="https://dev.le5h.ru">dev.le5h.ru</a>, dev experiments, 2008-Now</small></figcaption>
-        </figure>
-      </div>
-      
-    </section>
-    <section id="about">
-      <h2>Универсальный Web-разработчик<br>с многолетним промышленным опытом</h2>
-      <p>
-        Меня зовут Алексей Гайдук. Я fullstack-разработчик и более 8 лет занимаюсь
-        разработкой сайтов, веб-приложений и веб-сервисов — от первых версий до
-        доработки и масштабирования уже запущенных проектов.
-      </p>
-      <p>
-        Я помогаю запускать и развивать сайты и веб-приложения, которые работают быстро,
-        не ломаются под нагрузкой и остаются удобными для пользователей по мере роста проекта.
-      </p>
-      <p>
-        Основной стек — React и TypeScript на фронтенде,
-        Node.js, PHP, Python и SQL на бэкенде.
-        Часто подключаюсь к проектам, где нужна доработка сайта,
-        исправление ошибок или оптимизация производительности.
-      </p>
-      <p>
-        В отдельных проектах работал с более редкими и специализированными технологиями:
-        three.js и Babylon.js для 3D в браузере, WebGL и SVG-редакторами,
-        Electron для desktop-приложений, PWA и offline-режимами,
-        Telegram-ботами и API, микросервисами в Docker,
-        автоматизацией рендера в Blender через Python,
-        обработкой изображений и ML inference,
-        а также интеграциями с AR и просмотром 3D-моделей в браузере.
-      </p>
-    </section>
-    
-    <section>
-      <h2><a name="mywork"></a>Portfolio</h2>
-      <div class="ngrid ml">
-        <figure class="item part a1of3">
-          <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>Pizza Time v2<br><small>design update, ux improvements, pizza constructor, restoraunt mode, react, php, 2025</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>Tarantella<br><small>online e-shop, react, php, 2023</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>Pizza Time<br><small>online e-shop, orders dashboard, backend, frontend, design, react, php, 2021-2022</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/other/nda.webp" alt="NDA" loading="lazy" />
-          <figcaption>Interior Panorama Renderer<br><small>python, blender, docker, within AngelsIT, 2020</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/other/nda.webp" alt="NDA" loading="lazy" />
-          <figcaption>Online AR 3D Model Viewer<br><small>model upload and publish service, model converter, backend, frontrnd, react, symphony, node, within AngelsIT, 2020</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/other/nda.webp" alt="NDA" loading="lazy" />
-          <figcaption>Planogram Editor<br><small>interactive 2D editor with 3D view, frontend, backend, react, three.js, within AngelsIT, 2020</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>DGK Virtual Stand<br><small>interactive 3D web page, frontend, babylon.js, react, within AngelsIT, 2019-2020</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/other/nda.webp" alt="NDA" loading="lazy" />
-          <figcaption>EasyBoard Online<br><small>interactive 3D web app, fullstack, three.js, react, php, within AngelsIT, 2019</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>Parking UI<br><small>web app, frontend, react, within AngelsIT, 2019</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>Card Apply UI<br><small>internal service, editors, frontend, ux, typescript, angular, within FTNet, 2019</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>Medical News<br><small>dynamic website, frontend, angular, aborted, within FTNet, 2019</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/other/noimage.webp" alt="No Image" loading="lazy" />
-          <figcaption>University Pages<br><small>small cms, frontend, backend, js, php, sqlite, within FTNet, 2019</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/2018/aelitaart/aelitaart-v1.webp" alt="" loading="lazy" />
-          <figcaption>АэлитаАрт<br><small>e-shop, website, frontend, design, WP cms, adaptive, 2018</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/2018/collatz/playground-v1.webp" alt="" loading="lazy" />
-          <figcaption>Collatz Playground<br><small>simple web app, frontend, design, UX, adaptive, within DevHeap, 2018</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/2017/closer-io/closer-io-v1.webp" alt="" loading="lazy" />
-          <figcaption>Closer.io<br><small>demo page, adaptive, design, within DevHeap, 2017</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/2017/ifenix/ifenix-v1.webp" alt="" loading="lazy" />
-          <figcaption>Сервис-центр i-FENIX<br><small>landing page, adaptive, outsource for 8crm.ru, 2017</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/2016/hms/hms-v1.webp" alt="" loading="lazy" />
-          <figcaption>Hotel Management System<br><small>study prototype, backend, frontend, design, responsive, within XRAZY at IU, 2016</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/2015/pillow-pro/iwellness-v1.webp" alt="" loading="lazy" />
-          <figcaption>Массажёры iWellness<br><small>landing page, frontend, within Stebnev-Studio, 2015</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/2015/classy-snake/classy-snake-v1.webp" alt="" loading="lazy" />
-          <figcaption>CLASSYSNAKE<br><small>frontend, adaptive, within Stebnev-Studio, 2015</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/2015/stringer/stringer-v0.webp" alt="" loading="lazy" />
-          <figcaption>Stringer Market<br><small>frontend, for Stebnev-Studio, 2015</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/2015/netcom/netcom-v1.webp" alt="" loading="lazy" />
-          <figcaption>IT услуги NetCom<br><small>landing page, design, UX, responsive, 2015</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/2015/terratravel/terratravel-v2.webp" alt="" loading="lazy" />
-          <figcaption>Тур-агентство ТЕРРАТРЭВЕЛ<br><small>website version 3, admin panel, backend, frontend, design, responsive, 2015</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/2014/chiromancer/v0.webp" alt="" loading="lazy" />
-          <figcaption>Chiromancer<br><small>template for DLE cms, frontend, design, 2014</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/2014/games4me/g4m-v1.webp" alt="" loading="lazy" />
-          <figcaption>Games4Me<br><small>logo, design, feat. X-NicON, 2014</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/2013/fresh-flowers/fresh-flowers-v1.webp" alt="" loading="lazy" />
-          <figcaption>Доставка цветов Fresh Flowers<br><small>website, frontend, backend, design, 2014</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/2013/terratravel/terratravel-v1.webp" alt="" loading="lazy" />
-          <figcaption>Тур-агентство ТЕРРАТРЭВЕЛ<br><small>static website version 2, frontend, design, 2013</small></figcaption>
-        </figure>
-        <figure class="item part a1of3">
-          <img src="portfolio/2012/mse36/mse36-v1.webp" alt="" loading="lazy" />
-          <figcaption>МСЭ Воронежской области<br><small>website, backend, frontend, design, UX, feat. X-NicON, 2012</small></figcaption>
+          <figcaption>DevExp <small><a href="https://dev.le5h.ru">dev.le5h.ru</a>, dev experiments, 2008-Now</small></figcaption>
         </figure>
       </div>
     </section>
 
     <section>
-      <h2><a name="contacts"></a>Контакты</h2>
-      <p>Я живой человек, родился в России, Воронеже</p>
-      <div class="ngrid">
-        <div class="part a1of3">
+      <a name="contacts"></a>
+      <h2>Как со мной связаться</h2>
+      <p>Я живой человек, родился в Воронеже</p>
+      <div class="flex wrap triple gap">
+        <div>
           <ul class="flexed">
             <li>Telegram <a href="https://le5hka.t.me" target="_blank">@le5hka</a></li>
             <li>LinkedIn <a href="https://www.linkedin.com/in/aleksei-gaiduk-6026a3a1/" target="_blank">Aleksei Gaiduk</a></li>
             <li>Email <a href="mailto:le5h@ya.ru">le5h@ya.ru</a></li>
           </ul>
         </div>
-        <div class="part a1of3">
+        <div>
           <ul class="flexed">
             <li>GitHub <a href="https://github.com/le5h" target="_blank">github.com/le5h</a></li>
             <li>GitLab <a href="https://gitlab.com/le5h" target="_blank">gitlab.com/le5h</a></li>
@@ -357,7 +327,7 @@
             <li>DeviantArt <a href="https://le5h.deviantart.com/" target="_blank">le5h</a></li>
           </ul>
         </div>
-        <div class="part a1of3">
+        <div>
           <ul class="flexed">
             <li>Instagram <a href="https://instagram.com/turbet5" target="_blank">@turbet5</a></li>
             <li>VKontakte <a href="https://vk.com/le5ha" target="_blank">Алексей Гайдук</a></li>
@@ -367,19 +337,53 @@
       </div>
     </section>
 
-    <footer class="flex">
+    <footer class="flex space-between">
       <div><p>В любое время ~ Anytime</p></div>
       <div><p><a href="/">AlexY</a></p></div>
     </footer>
   </main>
   
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('load', () => {
       const preloader = document.getElementById('preloader');
       if (preloader) {
         preloader.classList.add('state-done');
         setTimeout(() => preloader.classList.add('hidden'), 2000);
       }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeToggle = document.getElementById('theme-toggle');
+      function updateTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        localStorage.setItem('theme', theme);
+      }
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        updateTheme(newTheme);
+      });
+      updateTheme(localStorage.getItem('theme') || 'light');
+
+      const hashLinks = document.querySelectorAll('a[href^="#"]');
+      hashLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = targetId
+            ? document.getElementById(targetId) || document.querySelector(`a[name="${targetId}"]`)
+            : null;
+          if (targetElement) {
+            const headerOffset = 20;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        });
+      });
     });
   </script>
   <script src="//code.jivo.ru/widget/s1WIqqGZWp" async></script>
