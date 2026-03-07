@@ -311,6 +311,7 @@
       <a name="contacts"></a>
       <h2>Как со мной связаться</h2>
       <p>Я живой человек, родился в Воронеже</p>
+      <p>Так же я ремонтирую компьютеры и ноутбуки <a href="https://le5h.ru/pc" target="_blank">le5h.ru/pc</a></p>
       <div class="flex wrap triple gap">
         <div>
           <ul class="flexed">
@@ -364,7 +365,8 @@
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         updateTheme(newTheme);
       });
-      updateTheme(localStorage.getItem('theme') || 'light');
+      const defaultTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      updateTheme(localStorage.getItem('theme') || defaultTheme);
 
       const hashLinks = document.querySelectorAll('a[href^="#"]');
       hashLinks.forEach(link => {
