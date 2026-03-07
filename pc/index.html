@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ремонт компьютеров в Воронеже — мастер Алексей и Виталий</title>
+<meta name="description" content="Ремонт компьютеров и ноутбуков в Воронеже. Настройка, апгрейд, установка Windows и программ. Выезд мастера на дом. Алексей и Виталий.">
+<style>
+:root {
+  --bg: #0b0d16;
+  --bg2: #12162a;
+  --text: #e6e8f2;
+  --accent: #ff7a18;
+  --accent2: #8a5cff;
+}
+
+* { box-sizing: border-box }
+
+body {
+  margin: 0;
+  font-family: system-ui;
+  background: 
+    radial-gradient(circle at 20% 20%, #1a1f3a 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, #141a33 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, #0f172a 0%, transparent 70%),
+    linear-gradient(135deg, #0b0d16 0%, #1e2942 100%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  color: var(--text);
+  animation: bgShift 20s ease infinite;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(255,122,24,0.03) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(138,92,255,0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(11, 13, 22, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  z-index: 100;
+  padding: 15px 0;
+}
+
+.header-content {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--accent), var(--accent2));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Typography */
+h1, h2, h3 {
+  margin: 0 0 15px;
+}
+
+h1, h2 {
+  background: linear-gradient(45deg, var(--accent), var(--accent2));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h1 span, h2 span, h3 span {
+  background: none;
+  -webkit-text-fill-color: var(--text);
+  margin-right: 8px;
+}
+
+h3 {
+  color: #fff;
+}
+
+h1 { 
+  font-size: 38px; 
+  margin-bottom: 20px;
+  animation: textGradient 3s ease-in-out infinite;
+}
+
+h2 { 
+  font-size: 28px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 2px;
+  animation: growWidth 0.6s ease-out;
+}
+
+p {
+  line-height: 1.6;
+  color: #cfd3ff;
+}
+
+/* Elements */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent2);
+  padding-left: 10px;
+}
+
+button {
+  padding: 14px 26px;
+  background: linear-gradient(90deg, var(--accent), #ff9b3f);
+  color: #000;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(255,122,24,0.3);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255,122,24,0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Layout */
+section {
+  margin-top: 60px;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+section:nth-of-type(2) { animation-delay: 0.3s }
+section:nth-of-type(3) { animation-delay: 0.6s }
+section:nth-of-type(4) { animation-delay: 0.9s }
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-2 { 
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.grid-auto {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* Cards */
+.card {
+  background: var(--bg2);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInScale 0.6s ease-out backwards;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  border-color: rgba(255,122,24,0.3);
+}
+
+.card:hover::before {
+  transform: translateX(0);
+}
+
+.card h3 { 
+  color: #fff;
+  background: none;
+  -webkit-text-fill-color: #fff;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s }
+.card:nth-child(2) { animation-delay: 0.2s }
+.card:nth-child(3) { animation-delay: 0.3s }
+.card:nth-child(4) { animation-delay: 0.4s }
+.card:nth-child(5) { animation-delay: 0.5s }
+.card:nth-child(6) { animation-delay: 0.6s }
+
+/* Utility */
+.text-center { text-align: center }
+.highlight { 
+  font-weight: 600;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.modal.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-content {
+  background: var(--bg2);
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 420px;
+  width: 90%;
+  border: 1px solid rgba(255,122,24,0.2);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+  transform: scale(1);
+}
+
+.contact {
+  margin-top: 10px;
+}
+
+.contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 8px 0 0;
+  padding: 8px 16px;
+  background: rgba(255,122,24,0.1);
+  border: 1px solid rgba(255,122,24,0.2);
+  border-radius: 8px;
+  color: var(--accent);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  background: rgba(255,122,24,0.2);
+  border-color: var(--accent2);
+  color: var(--accent2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255,122,24,0.2);
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,122,24,0.1);
+  transition: all 0.3s ease;
+  color: var(--accent);
+}
+
+.close:hover {
+  background: rgba(255,122,24,0.2);
+  transform: rotate(90deg);
+}
+
+footer {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 14px;
+  color: #9da3d6;
+}
+
+/* Animations */
+@keyframes bgShift {
+  0%, 100% { 
+    background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%;
+    filter: hue-rotate(0deg);
+  }
+  25% { 
+    background-position: 10% 10%, 90% 90%, 60% 40%, 0% 0%;
+    filter: hue-rotate(10deg);
+  }
+  50% { 
+    background-position: 20% 20%, 80% 80%, 40% 60%, 0% 0%;
+    filter: hue-rotate(0deg);
+  }
+  75% { 
+    background-position: 10% 10%, 90% 90%, 60% 40%, 0% 0%;
+    filter: hue-rotate(-10deg);
+  }
+}
+
+@keyframes textGradient {
+  0%, 100% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+}
+
+@keyframes growWidth {
+  from { width: 0; opacity: 0 }
+  to { width: 60px; opacity: 1 }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1 }
+}
+
+@keyframes fadeInScale {
+  from { 
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+<div class="header-content">
+<div class="logo">🔧 Фиксеры</div>
+<button onclick="openModal()">Контакты</button>
+</div>
+</header>
+
+<div class="container text-center">
+<h1><span>🔧</span> Ремонт компьютеров в Воронеже</h1>
+<p>
+🛠️ Настройка, ремонт и апгрейд компьютеров и ноутбуков.<br>
+🏠 Работаем по всему Воронежу. Возможен <span class="highlight">выезд мастера на дом</span>
+или ремонт у нас.
+</p>
+<br>
+<button onclick="openModal()">Связаться с мастером</button>
+</div>
+<section class="container">
+<h2><span>💻</span> Компьютерная помощь</h2>
+<div class="grid grid-auto">
+<div class="card">
+<h3><span>🔧</span> Ремонт ПК и ноутбуков</h3>
+<p>🔍 Диагностика и устранение неисправностей компьютеров и ноутбуков.</p>
+</div>
+<div class="card">
+<h3><span>🪟</span> Установка Windows</h3>
+<p>⚡ Чистая установка и настройка операционной системы и драйверов.</p>
+</div>
+<div class="card">
+<h3><span>🚀</span> Апгрейд компьютера</h3>
+<p>💾 Замена SSD, увеличение оперативной памяти, ускорение системы.</p>
+</div>
+<div class="card">
+<h3><span>🧹</span> Чистка от пыли</h3>
+<p>❄️ Чистка ноутбуков и ПК с заменой термопасты.</p>
+</div>
+<div class="card">
+<h3><span>🔨</span> Сборка компьютера</h3>
+<p>🎯 Подбор комплектующих и сборка ПК под задачи.</p>
+</div>
+<div class="card">
+<h3><span>⚙️</span> Настройка программ</h3>
+<p>📦 Установка необходимого программного обеспечения.</p>
+</div>
+</div>
+</section>
+<section class="container grid grid-2">
+<div>
+<h2><span>🤝</span> Как мы работаем</h2>
+<p>
+💬 Вы описываете проблему — мы проводим диагностику и предлагаем решение.
+</p>
+<p>
+✅ Работаем честно: если ремонт нецелесообразен, честно скажем об этом.
+💰 Если ремонт не выполняется — оплачивается только выезд (если он был).
+</p>
+<p>
+💵 Средняя стоимость услуг <span class="highlight">от 2000 ₽</span> в зависимости от задачи.
+</p>
+</div>
+<div>
+<h2><span>👨‍💻</span> О мастерах</h2>
+<p>
+👋 Мы — Алексей и Виталий. Работаем напрямую без посредников.
+</p>
+<p>
+🎓 Опыт настройки и ремонта компьютеров, сборки систем,
+установки операционных систем и программ.
+</p>
+<p>
+🛡️ После ремонта остаёмся на связи. Негласная гарантия —
+<span class="highlight">до 1 месяца</span>.
+</p>
+</div>
+</section>
+<section class="container text-center">
+<h2><span>📍</span> Работаем по всему Воронежу</h2>
+<p>
+🚐 Компьютерный мастер приедет в любой район города:<br>
+Центр, Северный, Коминтерновский, Левобережный, Юго-Западный и другие районы Воронежа.
+</p>
+<button onclick="openModal()">Позвонить мастеру</button>
+</section>
+<footer class="container">
+💻 Компьютерная помощь в Воронеже • Алексей и Виталий
+</footer>
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">✕</span>
+<h3><span>📞</span> Связаться</h3>
+<div class="contact">
+<strong>👨‍💻 Виталий</strong>
+<a href="tel:+79515524509">📞 +7 951 552-45-09</a>
+<a href="https://t.me/carrythecherries">💬 Telegram</a>
+<a href="https://wa.me/79515524509">💬 WhatsApp</a>
+</div>
+<div class="contact">
+<strong>👨‍💻 Алексей</strong>
+<a href="tel:+79009546970">📞 +7 900 954-69-70</a>
+<a href="https://t.me/le5hka">💬 Telegram</a>
+<a href="https://wa.me/79009546970">💬 WhatsApp</a>
+</div>
+</div>
+</div>
+<script>
+function openModal(){
+document.getElementById("modal").classList.add("active");
+}
+function closeModal(){
+document.getElementById("modal").classList.remove("active");
+}
+window.onclick=function(e){
+if(e.target.id==="modal")closeModal();
+}
+</script>
+</body>
+</html>
