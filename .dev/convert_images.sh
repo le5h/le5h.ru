@@ -6,7 +6,6 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PORTFOLIO_DIR="$SCRIPT_DIR/../portfolio"
 
 RGB_QUALITY=75
-ALPHA_QUALITY=85
 
 CORES=$(($(nproc) - 1))
 [ "$CORES" -lt 1 ] && CORES=1
@@ -16,7 +15,7 @@ convert_file() {
     local webp_file="${file%.*}.webp"
     local original_size=$(stat -c%s "$file")
     
-    ffmpeg -y -i "$file" -preset picture -q:v "$RGB_QUALITY" -q:a "$ALPHA_QUALITY" -f webp "$webp_file" 2>/dev/null && {
+    ffmpeg -y -i "$file" -preset picture -quality "$RGB_QUALITY" -f webp "$webp_file" 2>/dev/null && {
         local webp_size=$(stat -c%s "$webp_file")
         local reduction=$((original_size - webp_size))
         local percent=$(( (reduction * 100) / original_size ))
@@ -26,6 +25,7 @@ convert_file() {
 
 export -f convert_file
 export PORTFOLIO_DIR
+export RGB_QUALITY
 
 find "$PORTFOLIO_DIR" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) | xargs -P "$CORES" -I {} bash -c 'convert_file "$@"' _ {}
 
