@@ -229,7 +229,7 @@ figcaption { line-height: 1.25; }
 
 .item {
   height: 13rem;
-  background-color: var(--bg-item);
+  background-image: radial-gradient(circle, rgb(127,127,127), var(--bg-item));
   border-radius: 0.75rem;
   box-shadow: 0 0.3rem 0.6rem -0.3rem var(--shadow-color);
   transform: scale(1) perspective(18rem);
